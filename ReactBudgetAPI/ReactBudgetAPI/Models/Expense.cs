@@ -1,4 +1,7 @@
-﻿namespace ReactBudgetAPI.Models
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+
+namespace ReactBudgetAPI.Models
 {
     public class Expense
     {

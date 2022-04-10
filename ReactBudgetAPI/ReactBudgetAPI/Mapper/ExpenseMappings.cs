@@ -4,9 +4,9 @@ using ReactBudgetAPI.Models.Dtos;
 
 namespace ReactBudgetAPI.Mapper
 {
-    public class BudgetMappings : Profile
+    public class ExpenseMappings : Profile
     {
-        public BudgetMappings()
+        public ExpenseMappings()
         {
             CreateMap<Expense, ExpenseDto>().ReverseMap();
         }

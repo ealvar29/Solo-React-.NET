@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ReactBudgetAPI.Models;
 
 namespace ReactBudgetAPI.Data
 {
