@@ -20,14 +20,15 @@ namespace ReactBudgetAPI.Repository
             return Save();
         }
 
-        public bool DeleteExpense(int id)
+        public bool DeleteExpense(Expense expense)
         {
-            throw new System.NotImplementedException();
+            _db.Expenses.Remove(expense);
+            return Save();
         }
 
-        public Expense GetExpense(int id)
+        public Expense GetExpense(int expenseId)
         {
-            throw new System.NotImplementedException();
+            return _db.Expenses.FirstOrDefault(x => x.Id == expenseId);
         }
 
         public ICollection<Expense> GetExpenses()
@@ -35,14 +36,15 @@ namespace ReactBudgetAPI.Repository
             return _db.Expenses.OrderBy(x => x.Id).ToList();
         }
 
-        public bool Save()
-        {
-            throw new System.NotImplementedException();
-        }
-
         public bool UpdateExpense(Expense expense)
         {
-            throw new System.NotImplementedException();
+            _db.Expenses.Update(expense);
+            return Save();
+        }
+
+        public bool Save()
+        {
+            return _db.SaveChanges() >= 0 ? true : false;
         }
     }
 }
