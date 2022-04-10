@@ -2,6 +2,7 @@
 using ReactBudgetAPI.Models;
 using ReactBudgetAPI.Repository.IRepository;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ReactBudgetAPI.Repository
 {
@@ -31,7 +32,7 @@ namespace ReactBudgetAPI.Repository
 
         public ICollection<Expense> GetExpenses()
         {
-            throw new System.NotImplementedException();
+            return _db.Expenses.OrderBy(x => x.Id).ToList();
         }
 
         public bool Save()
