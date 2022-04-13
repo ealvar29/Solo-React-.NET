@@ -13,7 +13,7 @@ namespace ReactBudgetAPI.Repository.IRepository
 
         bool UpdateExpense(Expense expense);
 
-        bool DeleteExpense(int id);
+        bool DeleteExpense(Expense expense);
 
         bool Save();
     }
