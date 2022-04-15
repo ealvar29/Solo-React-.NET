@@ -1,5 +1,5 @@
 ﻿import React, { Component } from "react";
-
+import * as moment from 'moment'
 export class Expense extends Component {
   static displayName = Expense.name;
 
@@ -30,7 +30,7 @@ export class Expense extends Component {
               <td>{forecast.name}</td>
               <td>{forecast.cost}</td>
               <td>{forecast.expenseType}</td>
-              <td>{forecast.dueDate}</td>
+              <td>{moment(forecast.dueDate).format("MMM-Do-YYYY")}</td>
             </tr>
           ))}
         </tbody>
