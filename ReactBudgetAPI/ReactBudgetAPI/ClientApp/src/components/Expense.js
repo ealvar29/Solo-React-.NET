@@ -1,5 +1,7 @@
-﻿import React, { Component } from "react";
+﻿import React, { Component, useEffect, useState } from "react";
 import * as moment from 'moment'
+import axios from 'axios'
+
 export class Expense extends Component {
   static displayName = Expense.name;
 
@@ -15,26 +17,9 @@ export class Expense extends Component {
     static renderForecastsTable(forecasts) {
       console.log(forecasts)
     return (
-      <table className="table table-striped" aria-labelledby="tabelLabel">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Temp. (C)</th>
-            <th>Temp. (F)</th>
-            <th>Summary</th>
-          </tr>
-        </thead>
-        <tbody>
-          {forecasts.map((forecast) => (
-            <tr key={forecast.date}>
-              <td>{forecast.name}</td>
-              <td>{forecast.cost}</td>
-              <td>{forecast.expenseType}</td>
-              <td>{moment(forecast.dueDate).format("MMM-Do-YYYY")}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+        <div>
+            <p>Testing one </p>
+            </div>
     );
   }
 
@@ -64,3 +49,37 @@ export class Expense extends Component {
     this.setState({ forecasts: data, loading: false });
   }
 }
+
+ const Testing = () => {
+    const [expense, setExpense] = useState({})
+    useEffect(() => {
+        axios.get("/expense")
+            .then(res => {
+                setExpense(res.data)
+            })
+    },[])
+    console.log(expense)
+    return (
+        <table className="table table-striped" aria-labelledby="tabelLabel">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Temp. (C)</th>
+                    <th>Temp. (F)</th>
+                    <th>Summary</th>
+                </tr>
+            </thead>
+            <tbody>
+                {expense.map((expenses) => (
+                    <tr key={expenses.id}>
+                        <td>{expenses.name}</td>
+                        <td>{expenses.cost}</td>
+                        <td>{expenses.expenseType}</td>
+                        <td>{moment(expenses.dueDate).format("MMM-Do-YYYY")}</td>
+                    </tr>
+                ))}
+            </tbody>
+        </table>
+    )
+}
+export default Testing;
