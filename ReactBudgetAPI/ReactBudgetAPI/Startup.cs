@@ -67,7 +67,7 @@ namespace ReactBudgetAPI
 
             app.UseSpa(spa =>
             {
-                spa.Options.SourcePath = "ClientApp";
+                spa.Options.SourcePath = "my-app";
 
                 if (env.IsDevelopment())
                 {
