@@ -8,6 +8,10 @@ function App() {
     const [bills, setBill] = useState({})
     const [error, setError] = useState('')
     const [isLoading, setLoading] = useState(true);
+    const [dueDate, setDueDate] = useState(new Date());
+    const [newBillName, setNewBillName] = useState("");
+    const [cost, setCost] = useState("0");
+    const [type, setType] = useState("");
 
     useEffect(() => {
         axios.get('/expense').then((response) => {
